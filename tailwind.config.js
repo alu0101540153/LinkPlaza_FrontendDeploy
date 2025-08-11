@@ -9,10 +9,13 @@ export default {
   theme: {
     extend: {
       backgroundImage:{
-        "home" : "url('/bg.svg')"
+        "home" : "url('/bg.png')"
       },
       backgroundSize:{
         "home-xl" : "50%"
+      },
+      backgroundPosition: {
+        "right-bottom": "right bottom"
       }
     },
   },

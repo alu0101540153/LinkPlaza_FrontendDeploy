@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
 
-export default function Logo() {
+type LogoProps = {
+  className?: string;
+};
+
+export default function Logo({ className = "w-24" }: LogoProps) {
   return (
     <Link to="/">
-      <img src="/logo.svg" className="w-full block" alt="Logotipo Dev tree" />
+      <img
+        src="/logo.png"
+        className={`block mx-auto ${className}`}
+        alt="Logotipo Dev tree"
+      />
     </Link>
   );
 }

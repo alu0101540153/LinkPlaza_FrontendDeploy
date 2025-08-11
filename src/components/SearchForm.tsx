@@ -26,7 +26,7 @@ export default function SearchForm() {
   return (
     <form onSubmit={handleSubmit(handleSearch)} className="space-y-5">
       <div className="relative flex items-center  bg-white  px-2">
-        <label htmlFor="handle">devtree.com/</label>
+        <label htmlFor="handle">TheLinkPlaza.com/</label>
         <input
           type="text"
           id="handle"
@@ -42,15 +42,15 @@ export default function SearchForm() {
       <div className="mt-10">
         {mutation.isPending && <p className="text-center">Buscando...</p>}
         {mutation.isError && <p className="text-center text-red-600 font-black">{mutation.error.message}</p>}
-        {mutation.data && <p className="text-center text-cyan-600 font-black">
-          {mutation.data}   <Link to={`/auth/register`} state={{handle: slugify(handle)}}> Ir a Registro </Link> 
+        {mutation.data && <p className="text-center text-[#7D8D86] font-black">
+          {mutation.data}   <Link to={`/auth/register`} className="underline text-[#3E3F29]" state={{handle: slugify(handle)}}> Ir a Registro </Link> 
         </p>}
       </div>
 
       <input
         type="submit"
-        className="bg-cyan-400 p-3 text-lg w-full uppercase text-slate-600 rounded-lg font-bold cursor-pointer"
-        value="Obtener mi DevTree"
+        className="bg-[#3E3F29] p-3 text-lg w-full uppercase text-[#F1F0E4] rounded-lg font-bold cursor-pointer"
+        value="Crear mi LinkPlaza"
       />
     </form>
   );

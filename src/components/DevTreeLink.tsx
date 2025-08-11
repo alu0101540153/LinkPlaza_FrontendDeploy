@@ -20,7 +20,7 @@ export default function DevTreeLink({link}: DevTreeLinkProps) {
     <li 
       ref={setNodeRef}
       style={style}
-      className='bg-white px-5 py-2 flex items-center gap-5 rounded-lg'
+      className='bg-[#7D8D86] px-5 py-2 flex items-center gap-5 rounded-lg'
       {...attributes }
       {...listeners  }
       >
@@ -29,7 +29,7 @@ export default function DevTreeLink({link}: DevTreeLinkProps) {
             style={{ backgroundImage: `url('/social/icon_${link.name}.svg')` }}>
 
         </div>
-        <p className='capitalize'> Visita mi: <span className='font-bold'>{link.name}</span> </p>
+        <p className='capitalize text-white'> Visita mi: <span className='font-bold'>{link.name}</span> </p>
     </li>
   )
 }

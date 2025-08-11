@@ -15,10 +15,6 @@ export default function HandleView() {
   if(isLoading) return <div>Cargando...</div>
   if(error) return <Navigate to={'/404'}  />
 
-  console.log(isLoading);
-  console.log(error);
-  console.log(data);
-
 
   if(data) return <HandleData data={data} />
 }

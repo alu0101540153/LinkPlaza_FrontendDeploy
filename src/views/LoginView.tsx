@@ -1,17 +1,15 @@
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import {toast} from "sonner";
+import { toast } from "sonner";
 import { isAxiosError } from "axios";
 import ErrorMessage from "../components/ErrorMessage";
 import { LoginForm } from "../types";
 import api from "../config/axios";
+import Logo from "../components/Logo";
 
 export default function LoginView() {
   const navigate = useNavigate();
-  const initialValues: LoginForm = {
-    email: "",
-    password: "",
-  };
+  const initialValues: LoginForm = { email: "", password: "" };
 
   const {
     register,
@@ -20,81 +18,107 @@ export default function LoginView() {
   } = useForm({ defaultValues: initialValues });
 
   const handleLogin = async (formData: LoginForm) => {
-        try {
-          // Realizar la petición POST a la API para registrar el usuario
-          const {data} = await api.post(`/auth/login`, formData);
-          localStorage.setItem("AUTH_TOKEN", data);
-          navigate ("/admin")
-        } catch (error) {
-          if (isAxiosError(error) && error.response) {
-            toast.error(error.response.data.error)
-          } else {
-            toast.error("Error desconocido:");
-          }
-        }
+    try {
+      const { data } = await api.post(`/auth/login`, formData);
+      localStorage.setItem("AUTH_TOKEN", data);
+      navigate("/admin");
+    } catch (error) {
+      if (isAxiosError(error) && error.response) {
+        toast.error(error.response.data.error);
+      } else {
+        toast.error("Error desconocido");
+      }
+    }
   };
 
   return (
-    <>
-      <h1 className="text-4xl font-bold text-white">Iniciar Sesión</h1>
+    <div className="flex min-h-full bg-[#3E3F29] rounded-lg flex-col justify-center px-6 py-12 lg:px-8 relative z-10">
+      {/* Logo */}
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <Logo className="mx-auto h-16 w-auto" />
+        <h2 className="mt-10 text-center text-2xl font-bold tracking-tight text-white">
+          Inicia sesión en tu cuenta
+        </h2>
+      </div>
 
-      <form
-        onSubmit={handleSubmit(handleLogin)}
-        className="bg-white px-5 py-20 rounded-lg space-y-10 mt-10"
-        noValidate
-      >
-        <div className="grid grid-cols-1 space-y-3">
-          <label htmlFor="email" className="text-2xl text-slate-500">
-            E-mail
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="Email de Registro"
-            className="bg-slate-100 border-none p-3 rounded-lg placeholder-slate-400"
-            {...register("email", {
-              required: "El Email es obligatorio",
-              pattern: {
-                value: /\S+@\S+\.\S+/,
-                message: "E-mail no válido",
-              },
-            })}
-          />
-          {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
-        </div>
-        <div className="grid grid-cols-1 space-y-3">
-          <label htmlFor="password" className="text-2xl text-slate-500">
-            Password
-          </label>
-          <input
-            id="password"
-            type="password"
-            placeholder="Password de Registro"
-            className="bg-slate-100 border-none p-3 rounded-lg placeholder-slate-400"
-            {...register("password", {
-              required: "El Password es obligatorio",
-            })}
-          />
-          {errors.password && (
-            <ErrorMessage>{errors.password.message}</ErrorMessage>
-          )}
-        </div>
+      {/* Formulario */}
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form onSubmit={handleSubmit(handleLogin)} className="space-y-6" noValidate>
+          {/* Email */}
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-white">
+              E-mail
+            </label>
+            <div className="mt-2">
+              <input
+                id="email"
+                type="email"
+                autoComplete="email"
+                placeholder="ejemplo@email.com"
+                className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-[#BCA88D] sm:text-sm"
+                {...register("email", {
+                  required: "El Email es obligatorio",
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "E-mail no válido",
+                  },
+                })}
+              />
+              {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+            </div>
+          </div>
 
-        <input
-          type="submit"
-          className="bg-cyan-400 p-3 text-lg w-full uppercase text-slate-600 rounded-lg font-bold cursor-pointer"
-          value="Iniciar Sesión"
-        />
-      </form>
+          {/* Password */}
+          <div>
+            <div className="flex items-center justify-between">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-100">
+                Contraseña
+              </label>
+              <div className="text-sm">
+                <a href="#" className="font-semibold text-[#BCA88D] hover:text-[#7D8D86]">
+                  ¿Olvidaste tu contraseña?
+                </a>
+              </div>
+            </div>
+            <div className="mt-2">
+              <input
+                id="password"
+                type="password"
+                autoComplete="current-password"
+                placeholder="********"
+                className="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-[#BCA88D] sm:text-sm"
+                {...register("password", {
+                  required: "El Password es obligatorio",
+                })}
+              />
+              {errors.password && (
+                <ErrorMessage>{errors.password.message}</ErrorMessage>
+              )}
+            </div>
+          </div>
 
-      <nav className="mt-10">
-        <Link
-          className="text-center text-white block text-lg"
-          to="/auth/register"
-        >
-          No tienes una cuenta? Regístrate
-        </Link>
-      </nav>
-    </>
+          {/* Botón */}
+          <div>
+            <button
+              type="submit"
+              className="flex w-full justify-center rounded-md bg-[#BCA88D] px-3 py-1.5 text-sm font-semibold text-white hover:bg-[#7D8D86] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BCA88D] transition-colors"
+            >
+              Iniciar Sesión
+            </button>
+          </div>
+        </form>
+
+        {/* Registro */}
+        <p className="mt-10 text-center text-sm text-white">
+          ¿No tienes una cuenta?{" "}
+          <Link
+            to="/auth/register"
+            className="font-semibold text-[#F1F0E4] hover:text-[#7D8D86]"
+          >
+            Regístrate
+          </Link>
+        </p>
+      </div>
+    </div>
   );
 }

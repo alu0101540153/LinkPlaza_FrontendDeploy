@@ -107,7 +107,7 @@ export default function DevTreeView() {
     <>
       <div className='space-y-5'>
         <button 
-            className='bg-cyan-400 p-2 text-lg w-full uppercase text-slate-600 rounded font-bold'
+            className='bg-[#3E3F29] p-2 text-lg w-full uppercase text-[#F1F0E4] rounded font-bold'
             onClick={ () => mutate(queryClient.getQueryData(['user'])!) }
             >
           Guardar cambios
