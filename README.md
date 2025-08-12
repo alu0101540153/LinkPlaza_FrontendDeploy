@@ -17,6 +17,8 @@
   </a>
 </p>
 
+[Repositorio del BackEnd](https://github.com/alu0101540153/LinkPlaza_BackendDeploy)
+
 ---
 
 ## 📋 Descripción
