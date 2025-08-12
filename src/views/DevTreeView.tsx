@@ -40,6 +40,22 @@ export default function DevTreeView() {
     const updatedLinks = devTreeLinks.map(link => link.name === e.target.name ? {...link, url: e.target.value} : link)
     setDevTreeLinks(updatedLinks)
 
+    // Actualizar también la base de datos
+    const links: SocialNetwork[] = JSON.parse(user.links)
+    const updatedDBLinks = links.map(link => {
+      if (link.name === e.target.name) {
+        return { ...link, url: e.target.value }
+      }
+      return link
+    })
+
+    // Guardar en la base de datos
+    queryClient.setQueryData(['user'], (prevData: User) => {
+      return {
+        ...prevData,
+        links: JSON.stringify(updatedDBLinks)
+      }
+    })
   }
 
   const links : SocialNetwork[] = JSON.parse(user.links) // lo que esta en la base de datos
