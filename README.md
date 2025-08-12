@@ -39,6 +39,10 @@ https://thelinkplaza.netlify.app/
 
 ---
 
+<div align="center">
+  <img src="./public/background.png" alt="LinkPlaza Background" width="600">
+</div>
+
 ## 🛠️ Tecnologías Utilizadas
 
 ### Core
@@ -213,4 +217,9 @@ Este proyecto está bajo la licencia MIT. Ver el archivo `LICENSE` para más det
   <p>⭐ ¡Dale una estrella si te gusta el proyecto! ⭐</p>
   
   **Hecho con ❤️ y mucho ☕**
+</div>
+
+
+<div align="center">
+  <img src="./public/bg.png" alt="LinkPlaza Background" width="600">
 </div>
