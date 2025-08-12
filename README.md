@@ -11,11 +11,17 @@
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 </div>
 
+<p align="center">
+  <a href="https://thelinkplaza.netlify.app/" target="_blank">
+    🌐 VISITA LA WEB DE TheLinkPlaza
+  </a>
+</p>
+
 ---
 
 ## 📋 Descripción
 
-LinkPlaza es una aplicación web moderna que permite a los usuarios **centralizar todas sus redes sociales y enlaces importantes en una sola página personalizable**. Similar a Linktree, pero con un diseño elegante y funcionalidades avanzadas como drag & drop, perfiles personalizados y búsqueda de usuarios.
+LinkPlaza es una aplicación web moderna que permite a los usuarios **centralizar todas sus redes sociales y enlaces importantes en una sola página personalizable**. Similar a Linktree, pero con un diseño elegante y funcionalidades avanzadas como drag & drop, perfiles personalizados y búsqueda de usuarios. 
 
 ### ✨ Características Principales
 
@@ -27,6 +33,9 @@ LinkPlaza es una aplicación web moderna que permite a los usuarios **centraliza
 - 🔍 **Búsqueda de usuarios** en tiempo real
 - 📊 **Estado en tiempo real** con React Query
 - 🎭 **Perfiles públicos** personalizables
+
+## Enlace a la web:
+https://thelinkplaza.netlify.app/ 
 
 ---
 
