@@ -15,10 +15,20 @@ export default function DevTreeInput({ item, handleUrlChange, handleEnableLink }
             style={{ backgroundImage: `url('/social/icon_${item.name}.svg')` }}>
 
         </div>
-        <input type="text" className="flex-1 border border-gray-100 rounded-lg" 
+        <input type="text" className="flex-1 border border-gray-100 rounded-lg px-3 py-2" 
                 value={item.url}
                 onChange={handleUrlChange}
                 name={item.name}
+                placeholder={`Link a tu ${item.name === 'x' ? 'X (Twitter)' : 
+                            item.name === 'web' ? 'sitio web' :
+                            item.name === 'linkedin' ? 'LinkedIn' :
+                            item.name === 'youtube' ? 'YouTube' :
+                            item.name === 'instagram' ? 'Instagram' :
+                            item.name === 'facebook' ? 'Facebook' :
+                            item.name === 'github' ? 'GitHub' :
+                            item.name === 'tiktok' ? 'TikTok' :
+                            item.name === 'twitch' ? 'Twitch' :
+                            item.name}`}
         />
 
           <Switch
