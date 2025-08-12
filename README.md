@@ -58,6 +58,9 @@ LinkPlaza es una aplicación web moderna que permite a los usuarios **centraliza
 - **PostCSS** - Procesamiento de CSS
 - **Autoprefixer** - Prefijos CSS automáticos
 
+### Deployment
+- **Netlify** -  web para deployment de Frontend gratuita
+
 ---
 
 ## 🚀 Instalación y Configuración
